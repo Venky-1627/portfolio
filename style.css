@@ -1,0 +1,477 @@
+/* ==========================================================================
+   1. GLOBAL VARIABLES & RESET SCHEMES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --whatsapp-green: #25d366;
+    --automation-gold: #eab308;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   2. NAVBAR TOP NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background-color: rgba(15, 23, 42, 0.75);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px); /* High-End frosted blur backdrop background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   3. HERO BANNER DISPLAY SECTION (Tech-Guy Work Desk Image Overlay)
+   ========================================================================== */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    
+    /* Perfect contrast gradient overlay paired with live developer stock workstation */
+    background-image: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.65)), 
+                      url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Elegant laptop parallax movement effect */
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+}
+
+.hero-content p {
+    font-size: 1.35rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   4. SHOWCASE WORK PROJECTS MATRIX LAYOUT
+   ========================================================================== */
+.projects-section {
+    padding: 6rem 10%;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid #334155;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+    
+}
+
+.project-image {
+    background-color: #334155;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    color: var(--text-muted);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tags span {
+    background-color: #0f172a;
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* Specific Automation Showcase Elements */
+.category-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--automation-gold);
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.project-metric {
+    background-color: rgba(234, 179, 8, 0.1);
+    border-left: 3px solid var(--automation-gold);
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: #fef08a;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.status-badge {
+    font-size: 0.85rem;
+    color: var(--whatsapp-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   5. CONSULTING SERVICES LAYOUT DESIGNS
+   ========================================================================== */
+.services-section {
+    padding: 6rem 10%;
+    background-color: var(--bg-dark);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: -2rem auto 4rem auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    transition: all 0.3s ease;
+    color: var(--accent);
+}
+
+.service-card.focus-card {
+    border: 1px solid var(--accent);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-features li {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-features li i {
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   6. CONVERSION-TARGETED CONTACT BUTTON AREA
+   ========================================================================== */
+.contact-section {
+    padding: 7rem 10%;
+    background-color: var(--bg-card);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.contact-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Dual Contact Action Button Styles */
+.contact-card-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 1.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 280px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-icon-wrapper {
+    font-size: 2rem;
+}
+
+.contact-btn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-btn-text span {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+.contact-btn-text strong {
+    font-size: 1rem;
+    margin-top: 0.15rem;
+}
+
+/* Premium Email Direct Styling */
+.email-btn {
+    background-color: #0f172a;
+    color: var(--accent);
+    border-color: rgba(56, 189, 248, 0.2);
+}
+
+.email-btn:hover {
+    transform: translateY(-4px);
+    background-color: #1e293b;
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
+}
+
+/* Chat on WhatsApp Styling */
+.whatsapp-card-btn {
+    background-color: var(--whatsapp-green);
+    color: #ffffff;
+}
+
+.whatsapp-card-btn:hover {
+    transform: translateY(-4px);
+    background-color: #22c55e;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+/* ==========================================================================
+   7. MINIMAL CONCISE FOOTER PANELS
+   ========================================================================== */
+.minimal-footer {
+    background-color: #0f172a;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.minimal-footer p {
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   8. ULTRA-RESPONSIVE MEDIA QUERIES (Mobile Layout Recovers)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content h1 { font-size: 2.25rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .projects-section, .services-section, .contact-section { padding: 4rem 5%; }
+    .contact-buttons-container { flex-direction: column; gap: 1rem; }
+    .contact-card-btn { width: 100%; }
+}
+
+
+/* ==========================================================================
+   CUSTOM INTERACTIVE GLOW EFFECTS (SERVICE CARDS)
+   ========================================================================== */
+
+/* This targets the normal Website and Web App cards when you hover over them */
+.service-card:hover {
+    border-color: var(--accent) !important;
+    /* This creates the glow: horizontal offset, vertical offset, blur radius, spread, color */
+    box-shadow: 0 0 15px 2px rgba(56, 189, 248, 0.3) !important;
+    transform: translateY(-8px) !important;
+}
+
+/* This targets your specialized Business Automation card to give it an extra bright gold glow */
+.service-card.focus-card:hover {
+    border-color: var(--automation-gold) !important;
+    /* A golden neon shadow to make this high-value service stand out to business clients */
+    box-shadow: 0 0 20px 3px rgba(234, 179, 8, 0.4) !important;
+    transform: translateY(-8px) !important;
+}
